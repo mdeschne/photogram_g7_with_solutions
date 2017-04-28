@@ -1,0 +1,2 @@
+class KaController < ApplicationController
+end
