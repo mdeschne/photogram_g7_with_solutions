@@ -1,11 +1,15 @@
-<h1>EDIT form</h1>
+<h1>Edit Photo</h1>
 
-<form action="http://localhost:3000/square_root/results">
+<form action="/update_photo/<%= @id %>">
   <div>
-    <label for="x">
-      Enter a number
+    <label for="url">
+      Image URL
     </label>
-    <input id="x" type = "text" name="x">
+    <input id="url" type = "text" name="url" value="<%= @url %>"><br />
+    <label for="cap">
+      Caption
+    </label>
+    <input id="cap" type = "text" name="cap" value="<%= @cap %>">
   </div>
-  <button>Calculate square root</button>
+  <button>Update Photo</button>
 </form>

@@ -1,11 +1,15 @@
-<h1>New form</h1>
+<h1>Add a Photo</h1>
 
-<form action="http://localhost:3000/square_root/results">
+<form action="/create_photo">
   <div>
-    <label for="x">
-      Enter a number
+    <label for="url">
+      Image URL
     </label>
-    <input id="x" type = "text" name="x">
+    <input id="url" type = "text" name="url"><br />
+    <label for="cap">
+      Caption
+    </label>
+    <input id="cap" type = "text" name="cap">
   </div>
-  <button>Calculate square root</button>
+  <button>Create Photo</button>
 </form>

@@ -8,32 +8,93 @@ class PicturesController < ApplicationController
 
   def create_row
 
-    render("photos/create_row.html.erb")
+p = Photo.new
+
+@url = params["url"]
+
+@caption = params["cap"]
+
+
+p.source = @url
+p.caption = @caption
+p.save
+
+@count = Photo.count
+
+    redirect_to("/photos")
+
   end
 
   def index
+
+@i = Photo.all.order(:created_at => :desc)
 
     render("photos/index.html.erb")
   end
 
   def show
 
+@id = params["the_id"]
+
+@p = Photo.find(@id)
+
+
+
+# @cap = p.caption
+# @source = p.source
+# @timestamp = p.created_at
+
     render("photos/show.html.erb")
   end
 
   def edit_form
+    # <input name = "the source" value =>
+    @id = params["the_id"]
+
+f = Photo.find(@id)
+
+@url = f.source
+@cap = f.caption
 
     render("photos/edit_form.html.erb")
   end
 
   def update_row
 
-    render("update_photo/update_row.html.erb")
+    @id = params["id"]
+
+    @url = params["url"]
+
+    @caption = params["cap"]
+
+    e = Photo.find(@id)
+
+    e.source = @url
+    e.caption = @caption
+    e.save
+
+    @count = Photo.count
+
+        redirect_to("/photos")
+
   end
 
   def destroy_row
 
-    render("delete_photo/destroy_row.html.erb")
+  @id = params["the_id"]
+
+    d = Photo.find(@id)
+
+
+    d.destroy
+    d.save
+
+    @count = Photo.count
+
+
+    redirect_to("/photos")
+
+        # render("destroy_row.html.erb")
   end
 
 end
