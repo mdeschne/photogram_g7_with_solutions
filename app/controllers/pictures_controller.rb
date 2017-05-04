@@ -75,7 +75,7 @@ f = Photo.find(@id)
 
     @count = Photo.count
 
-        redirect_to("/photos")
+        redirect_to("/photos/"+params["id"])
 
   end
 
