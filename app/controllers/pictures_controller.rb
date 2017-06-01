@@ -8,16 +8,24 @@ class PicturesController < ApplicationController
 
   def create_row
 
-p = Photo.new
+@p = Photo.new
 
 @url = params["url"]
 
 @caption = params["cap"]
 
 
-p.source = @url
-p.caption = @caption
-p.save
+@p.source = @url
+@p.caption = @caption
+
+# save_status = @p.save
+# 
+# if save_status == true
+#   redirect_to("/photos", {:notice => "created photo successfully"})
+# else
+# render("photos/create_row.html/erb")
+#
+# end
 
 @count = Photo.count
 
